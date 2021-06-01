@@ -1,0 +1,52 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.headerFont {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 24px;
+}
+
+.subFont {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+}
+
+.specialHead {
+    font-family: "Oswald", sans-serif;
+}
+
+.normalFont {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+.navbar-inverse {
+}
