@@ -15,7 +15,8 @@ use App\Http\Controllers\admin\UserController;
 */
 
 Route::get('admin/dashboard', 'AdminController@index')->name('admin.index');
-Route::resource('admin-users', 'AdminUserController');
+Route::resource('users', 'AdminUserController');
+Route::resource('positions', 'AdminPositionController');
 Route::get('/', function () {
     return view('welcome');
 });

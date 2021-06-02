@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminUsers\AdminUserUpdateRequest;
+use App\Http\Requests\AdminUsers\AdminUserCreateRequest;
+use App\Position;
 use App\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
@@ -15,7 +20,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin-users.index')->with('users', $users);
+        return view('users.index')->with('users', $users);
     }
 
     /**
@@ -25,7 +30,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create')->with('positions', Position::all());
     }
 
     /**
@@ -34,9 +39,16 @@ class AdminUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminUserCreateRequest $request)
     {
-        //
+        $user = new User();
+        $data = $request->all();
+        $data['student_no'] = $user->generateStudentNumber();
+        $data['image'] = time() . '_' . $request->image->getClientOriginalName();
+        $data['password'] = Hash::make($data['password']);
+        $request->image->storeAs('profile_images', $data['image'], 'public');
+        User::create($data);
+        return redirect(route('users.index'))->with('success', 'A new user has been created');
     }
 
     /**
@@ -56,9 +68,15 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $positions = Position::all();
+        $data = [
+            'user' => $user,
+            'positions' => $positions
+        ];
+
+        return view('users.edit')->with($data);
     }
 
     /**
@@ -68,9 +86,17 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminUserUpdateRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+        if ($request->hasFile('image')) {
+            Storage::delete('public/profile_images/' . $user->image);
+            $data['image'] = time() . '_' . $request->image->getClientOriginalName();
+            $request->image->storeAs('profile_images', $data['image'], 'public');
+        }
+        $user->update($data);
+
+        return redirect(route('users.index'))->with('success', 'A user has been updated successfully');
     }
 
     /**
@@ -79,8 +105,10 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        Storage::delete('profile_images/' . $user->image);
+        $user->delete();
+        return redirect()->back()->with('success', 'A user has been deleted successfuly');
     }
 }

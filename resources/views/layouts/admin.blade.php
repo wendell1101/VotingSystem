@@ -15,23 +15,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--  data table -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}">
     <!-- CSS Files -->
 
 
     <link rel="stylesheet" href="{{ asset('css/material-dashboard.css?v=2.1.2') }}">
 
+    @yield('css')
+
 </head>
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="danger" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-            <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            <div class="logo"><a href="/" class="simple-text logo-normal">
                     Computer Society
                 </a></div>
             <!-- sidebar-wrapper -->
@@ -76,7 +78,7 @@
     <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
     <script src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
     <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <script src="{{ asset('js/plugins/jasny-bootstrap.min.js') }}"></script>
     <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
     <script src="{{ asset('js/plugins/fullcalendar.min.js') }}"></script>
     <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
@@ -87,8 +89,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
     <!-- Library for adding dinamically elements -->
     <script src="{{ asset('js/plugins/arrive.min.js') }}"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
     <!-- Chartist JS -->
     <script src="{{ asset('js/plugins/chartist.min.js') }}"></script>
     <!--  Notifications Plugin    -->
@@ -97,7 +98,7 @@
     <script src="{{ asset('js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
 
     <!-- Data table -->
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/dataTables.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
@@ -283,6 +284,7 @@
             $('#general-table').DataTable();
         });
     </script>
+    @yield('js')
 </body>
 
 </html>

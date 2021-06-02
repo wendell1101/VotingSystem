@@ -55,4 +55,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Position::class);
     }
+
+    public function generateStudentNumber()
+    {
+        $max_id = User::max('id');
+        return date("Y") . '-' . str_pad(($max_id + 1), 5, "0", STR_PAD_LEFT) . '-ST-0';
+    }
 }
