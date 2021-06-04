@@ -18,8 +18,14 @@
                 <p>User Roles</p>
             </a>
         </li>
-        <li class="nav-item @if(Request::is('candidate')) active @endif">
-            <a class="nav-link" href="#">
+        <li class="nav-item @if(Request::is('officers')) active @endif">
+            <a class="nav-link" href="{{ route('officers.index') }}">
+                <i class="material-icons">person</i>
+                <p>Candidate Officers</p>
+            </a>
+        </li>
+        <li class="nav-item @if(Request::is('candidates')) active @endif">
+            <a class="nav-link" href="{{ route('candidates.index') }}">
                 <i class="material-icons">person</i>
                 <p>Candidates</p>
             </a>

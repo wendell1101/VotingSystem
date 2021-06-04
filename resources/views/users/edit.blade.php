@@ -13,7 +13,6 @@
             @method('PUT')
             <div class="row">
                 <div class="col text-center">
-
                     <img id="uploadPreview" src="{{ asset('storage/profile_images/'. $user->image) }}" class="img-fluid border" style="width: 130px; height:120px; border:none!important" /><br>
                     <label for="image">
                         <h2>

@@ -4,44 +4,36 @@
 
 <div class="container-fluid">
     <div class="d-flex align-items-center" width="100%">
-        <h3>User Profiles</h2>
-            <a href="{{ route('users.create') }}" class="btn btn-primary btn-md ml-auto">Create <i class="ml-2 fa fa-plus"></i></a>
+        <h3>Candidate Officers</h2>
+            <a href="{{ route('officers.create') }}" class="btn btn-primary btn-md ml-auto">Create Officer <i class="ml-2 fa fa-plus"></i></a>
 
     </div>
 
     <div class="table-responsive">
         <x-alert />
         <table class="table" id="general-table" class="display" style="width:100%">
-            @if($users->count() > 0)
+            @if($officers->count() > 0)
             <thead>
                 <tr>
                     <th class="text-center">#</th>
-                    <th>Student Number</th>
-                    <th>Image</th>
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th class="text-center">Name</th>
                     <th></th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach($users as $user)
+                @foreach($officers as $officer)
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
-                    <td>{{ $user->student_no }}</td>
-                    <td><img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="profile" width="80" height="80"></td>
-                    <td>{{ $user->getFullName()}}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->getPosition($user->position_id) }}</td>
+                    <td class="text-center">{{ $officer->name}}</td>
                     <td class="td-actions text-right">
                         <!-- <button type="button" rel="tooltip" class="btn btn-info">
                             <i class="material-icons">person</i>
                         </button> -->
-                        <a href="{{ route('users.edit', $user->id) }}" rel="tooltip" class="btn btn-success">
+                        <a href="{{ route('officers.edit', $officer->id) }}" rel="tooltip" class="btn btn-success">
                             <i class="material-icons">edit</i>
                         </a>
-                        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deleteUser({{$user->id}});">
+                        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deleteOfficer({{$officer->id}});">
                             <i class="material-icons">close</i>
                         </button>
                     </td>
@@ -49,7 +41,7 @@
                 @endforeach
             </tbody>
             @else
-            <h2 class="text-secondary text-center">No User Yet</h2>
+            <h2 class="text-secondary text-center">No Candidate Officer Yet</h2>
             @endif
 
 
@@ -68,13 +60,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Officer</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete this user?
+                        Are you sure you want to delete this officer?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -96,9 +88,9 @@
     const deleteBtn = document.getElementById('btn-confirm-delete');
 
 
-    function deleteUser(id) {
+    function deleteOfficer(id) {
         deleteBtn.addEventListener('click', function(e) {
-            deleteForm.action = `/users/${id}/`;
+            deleteForm.action = `/officers/${id}/`;
             deleteForm.submit();
         })
 

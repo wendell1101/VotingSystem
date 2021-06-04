@@ -12,7 +12,7 @@
     <div class="table-responsive">
         <x-alert />
         <table class="table" id="general-table" class="display" style="width:100%">
-            @if($positions)
+            @if($positions->count() > 0)
             <thead>
                 <tr>
                     <th class="text-center">#</th>

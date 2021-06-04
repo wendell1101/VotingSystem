@@ -17,6 +17,11 @@ class AdminUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        return $this->middleware('checkIfHasPosition')->except('index');
+    }
     public function index()
     {
         $users = User::all();
@@ -107,8 +112,8 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        Storage::delete('profile_images/' . $user->image);
         $user->delete();
+        Storage::delete('public/profile_images/' . $user->image);
         return redirect()->back()->with('success', 'A user has been deleted successfuly');
     }
 }

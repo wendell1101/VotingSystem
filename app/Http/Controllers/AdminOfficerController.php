@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AdminPosition\AdminPositionCreateRequest;
-use App\Position;
+use App\Officer;
+use App\Http\Requests\AdminOfficers\AdminOfficerCreateRequest;
+use App\Http\Resources\AdminOfficers\AdminOfficerCreateRequest as AdminOfficersAdminOfficerCreateRequest;
 use Illuminate\Http\Request;
 
-class AdminPositionController extends Controller
+class AdminOfficerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        return view('positions.index')->with('positions', Position::all());
+        return view('officers.index')->with('officers', Officer::all());
     }
 
     /**
@@ -25,7 +28,7 @@ class AdminPositionController extends Controller
      */
     public function create()
     {
-        return view('positions.create');
+        return view('officers.create');
     }
 
     /**
@@ -34,10 +37,10 @@ class AdminPositionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminPositionCreateRequest $request)
+    public function store(AdminOfficerCreateRequest $request)
     {
-        Position::create($request->all());
-        return redirect(route('positions.index'))->with('success', 'A new user role has been created');
+        Officer::create($request->all());
+        return redirect(route('officers.index'))->with('success', 'A new officer has been created');
     }
 
     /**
@@ -57,9 +60,9 @@ class AdminPositionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Position $position)
+    public function edit(Officer $officer)
     {
-        return view('positions.edit')->with('position', $position);
+        return view('officers.edit')->with('officer', $officer);
     }
 
     /**
@@ -69,10 +72,10 @@ class AdminPositionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminPositionCreateRequest $request, Position $position)
+    public function update(AdminOfficerCreateRequest $request, Officer $officer)
     {
-        $position->update($request->all());
-        return redirect(route('positions.index'))->with('success', 'A user role has been updated');
+        $officer->update($request->all());
+        return redirect(route('officers.index'))->with('success', 'A candidate officer has been updated');
     }
 
     /**
@@ -81,13 +84,13 @@ class AdminPositionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Position $position)
+    public function destroy(Officer $officer)
     {
-        if ($position->users->count() > 0) {
-            session()->flash('error', 'You cannot delete this role because of associated user');
+        if ($officer->candidates->count() > 0) {
+            session()->flash('error', 'You cannot delete officer because of associated candidate');
         } else {
-            $position->delete();
-            session()->flash('success', 'A user role has been deleted successfully');
+            $officer->delete();
+            session()->flash('success', 'A candidate officer has been deleted successfully');
         }
         return redirect()->back();
     }

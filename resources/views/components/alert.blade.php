@@ -3,6 +3,10 @@
     <p class="alert alert-success">
         {{ session('success' )}}
     </p>
+    @elseif(session('error'))
+    <p class="alert alert-danger">
+        {{ session('error' )}}
+    </p>
     @endif
 
     @if ($errors->any())

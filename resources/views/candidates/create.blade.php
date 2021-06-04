@@ -4,10 +4,10 @@
 
 <div class="container-fluid">
     <div class="d-flex align-items-center" width="100%">
-        <h3>Create User</h2>
+        <h3>Create Candidate</h2>
     </div>
     <div class="container">
-        <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('candidates.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col text-center">
@@ -30,16 +30,16 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="Firstname" value="{{ old('first_name') }}">
-                    @error('first_name')
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Fullname" value="{{ old('name') }}">
+                    @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="Lastname" value="{{ old('last_name') }}">
-                    @error('last_name')
+                    <input type="text" class="form-control @error('course_and_section') is-invalid @enderror" name="course_and_section" placeholder="Course and Section" value="{{ old('course_and_section') }}">
+                    @error('course_and_section')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -48,7 +48,7 @@
             </div>
             <!-- email -->
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-md-6">
                     <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address" value="{{ old('email') }}">
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -56,41 +56,55 @@
                     </span>
                     @enderror
                 </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" name="contact_no" placeholder="Contact Number" value="{{ old('contact_no') }}">
+                    @error('contact_no')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
             </div>
-            <!-- positions -->
-            @if($positions)
             <div class="form-row">
-
                 <div class="form-group col">
-                    <select name="position_id" id="position_id" class="form-control" required>
-                        <option value=""> Choose Role</option>
-                        @foreach($positions as $position)
-                        <option value="{{ $position->id}}">{{ $position->name }}</option>
+
+                    <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Description" value="{{ old('description') }}">
+                    @error('description')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="platform">Platform</label>
+                    <textarea name="platform" id="platform" cols="30" rows="5" class="form-control @error('description') is-invalid @enderror" placeholder="Platform">
+                    {{ old('platform') }}
+                    </textarea>
+
+                    @error('platform')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+            <!-- officer_id -->
+            @if($officers)
+            <div class="form-row">
+                <div class="form-group col">
+                    <select name="officer_id" id="officer_id" class="form-control" required>
+                        <option value="" required> Choose position</option>
+                        @foreach($officers as $officer)
+                        <option value="{{ $officer->id}}"> {{ ucwords($officer->name) }}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
             @endif
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" value="{{ old('password') }}">
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm-Password">
-                    @error('password_confirmation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-row">
-                <a href="{{ route('users.index') }}" class="btn btn-muted" name="create">Cancel</a>
+                <a href="{{ route('candidates.index') }}" class="btn btn-muted" name="create">Cancel</a>
                 <button type="submit" class="btn btn-primary" name="create">Create</button>
             </div>
         </form>
