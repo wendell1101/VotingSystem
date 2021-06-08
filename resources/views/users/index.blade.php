@@ -30,7 +30,7 @@
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
                     <td>{{ $user->student_no }}</td>
-                    <td><img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="profile" width="80" height="80"></td>
+                    <td><img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="profile" width="60" height="60" class="rounded-circle"></td>
                     <td>{{ $user->getFullName()}}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->getPosition($user->position_id) }}</td>

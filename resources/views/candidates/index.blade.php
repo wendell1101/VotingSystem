@@ -30,7 +30,7 @@
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
                     <td>{{ $candidate->name }}</td>
-                    <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="80" height="80"></td>
+                    <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="60" height="60" class="rounded-circle"></td>
                     <td>{{ $candidate->email }}</td>
                     <td>{{ $candidate->course_and_section }} </td>
                     <td>{{ $candidate->getOfficerName($candidate->officer_id) }} </td>

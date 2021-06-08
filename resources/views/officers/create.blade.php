@@ -22,7 +22,7 @@
                     <label for="num_of_votes">
                         Number of votes needed
                     </label>
-                    <input type="number" class="form-control @error('num_of_votes') is-invalid @enderror" name="num_of_votes" value="{{ old('num_of_votes') }}" value="1" min="1">
+                    <input type="number" class="form-control @error('num_of_votes') is-invalid @enderror" name="num_of_votes" value="{{ old('num_of_votes') }}" value="1" min="1" required>
                     @error('num_of_votes')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

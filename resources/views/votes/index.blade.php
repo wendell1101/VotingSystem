@@ -64,7 +64,7 @@
 
 
 </div>
-<button class="btn btn-success mt-2 btn-md">View Results</button>
+<button class="btn btn-primary mt-2 btn-md">View Results</button>
 
 </div>
 

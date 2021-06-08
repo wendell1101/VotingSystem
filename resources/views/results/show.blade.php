@@ -19,6 +19,7 @@
                     <th class="text-center">#</th>
                     <th class="text-center">Candidate Name</th>
                     <th class="text-center">Total Vote</th>
+                    <th class="text-center">Image</th>
                     <th class="text-center">Vote Percentage</th>
 
                     <th></th>
@@ -32,9 +33,16 @@
                     <td class="text-center">{{ $candidate->name }}</td>
                     <td class="text-center">{{ $candidate->getCandidateVotesCount($officer->id , $candidate->id)}}</td>
                     <td class="text-center">
+                        <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="image" width="50px" height="50px" class="rounded-circle">
+                    </td>
+                    <td class="text-center">
                         {{ $percent = $candidate->getVotePercentagePerCandidate($candidate->getCandidateVotesCount($officer->id , $candidate->id), $officer->getTotalVotesPerOfficer($officer->id))}} %
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; " aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }}%</div>
+                            <div class="progress-bar
+                            @if($percent == 0)
+                            text-dark
+                            @endif
+                            " role="progressbar" style="width: {{ $percent }}%; " aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }}%</div>
                         </div>
                     </td>
                 </tr>

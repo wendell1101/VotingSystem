@@ -25,6 +25,10 @@ class Candidate extends Model
         return $officer->name;
     }
 
+    public function formatNumber($number)
+    {
+        return number_format((float)$number, 0, '.', '');
+    }
     public function getCandidateVotesCount($officer_id, $candidate_id)
     {
         // select * from votes where candidate_id = candidate_id And officer_id = officer_id
@@ -41,6 +45,6 @@ class Candidate extends Model
     public function getVotePercentagePerCandidate($candidate_vote_count, $officer_total_vote_count)
     {
         $percentage =  $candidate_vote_count / $officer_total_vote_count * 100;
-        return $percentage;
+        return $this->formatNumber($percentage);
     }
 }

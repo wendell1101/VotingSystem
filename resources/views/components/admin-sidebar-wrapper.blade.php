@@ -8,7 +8,7 @@
         </li>
         <li class="nav-item @if(Request::is('users')) active @endif">
             <a class="nav-link" href="{{ route('users.index') }}">
-                <i class="material-icons">person</i>
+                <i class="material-icons"><i class="fas fa-users"></i></i>
                 <p>Users</p>
             </a>
         </li>
@@ -20,19 +20,19 @@
         </li>
         <li class="nav-item @if(Request::is('officers')) active @endif">
             <a class="nav-link" href="{{ route('officers.index') }}">
-                <i class="material-icons">person</i>
+                <i class="material-icons"><i class="fas fa-tasks"></i></i>
                 <p>Candidate Officers</p>
             </a>
         </li>
         <li class="nav-item @if(Request::is('candidates')) active @endif">
             <a class="nav-link" href="{{ route('candidates.index') }}">
-                <i class="material-icons">person</i>
+                <i class="material-icons"><img src="{{ asset('img/main/candidate_icon.svg') }}" alt="icon"></i>
                 <p>Candidates</p>
             </a>
         </li>
         <li class="nav-item @if(Request::is('results')) active @endif">
             <a class="nav-link" href="{{ route('results.index') }}">
-                <i class="material-icons">person</i>
+                <i class="material-icons"><i class="fas fa-poll"></i></i>
                 <p>Voting Results</p>
             </a>
         </li>

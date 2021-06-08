@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Officer;
+use App\Candidate;
+use App\Vote;
+use App\User;
+use App\Position;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -19,7 +24,14 @@ class AdminController extends Controller
     }
     public function index()
     {
-        return view('admin.index');
+        $data = [
+            'officers' => Officer::all(),
+            'users' => User::all(),
+            'positions' => Position::all(),
+            'votes' => Vote::all(),
+            'candidates' => Candidate::all(),
+        ];
+        return view('admin.index')->with($data);
     }
 
     /**

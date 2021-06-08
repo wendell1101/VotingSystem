@@ -25,7 +25,7 @@
                 @foreach($positions as $position)
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
-                    <td class="text-center">{{ $position->name}}</td>
+                    <td class="text-center">{{ strtoupper($position->name)}}</td>
                     <td class="td-actions text-right">
                         <!-- <button type="button" rel="tooltip" class="btn btn-info">
                             <i class="material-icons">person</i>
