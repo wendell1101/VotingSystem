@@ -44,7 +44,7 @@ class Candidate extends Model
 
     public function getVotePercentagePerCandidate($candidate_vote_count, $officer_total_vote_count)
     {
-        $percentage =  $candidate_vote_count / $officer_total_vote_count * 100;
+        $percentage =  $candidate_vote_count == 0 ? 0 : $candidate_vote_count / $officer_total_vote_count * 100;
         return $this->formatNumber($percentage);
     }
 }
