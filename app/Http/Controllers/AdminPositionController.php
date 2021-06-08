@@ -13,6 +13,12 @@ class AdminPositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('checkIfIsAdmin');
+    }
+
     public function index()
     {
         return view('positions.index')->with('positions', Position::all());

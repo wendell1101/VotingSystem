@@ -16,6 +16,7 @@ class CreateOfficersTable extends Migration
         Schema::create('officers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('num_of_votes')->default(1);
             $table->timestamps();
         });
     }

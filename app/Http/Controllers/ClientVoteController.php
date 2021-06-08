@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Vote;
+use App\Candidate;
+use App\Officer;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ClientVoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +18,10 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('checkIfIsAdmin');
     }
     public function index()
     {
-        return view('admin.index');
+        return view('votes.index')->with('officers', Officer::all());
     }
 
     /**
@@ -40,7 +42,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Vote::create($data);
+        return redirect(route('votes.index'));
     }
 
     /**
@@ -51,7 +55,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $officer = Officer::findOrFail($id);
+        return view('votes.show')->with('officer', $officer);
     }
 
     /**

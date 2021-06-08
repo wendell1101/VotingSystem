@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Vote;
 use Illuminate\Database\Eloquent\Model;
 
 class Candidate extends Model
@@ -22,5 +23,24 @@ class Candidate extends Model
             return null;
         }
         return $officer->name;
+    }
+
+    public function getCandidateVotesCount($officer_id, $candidate_id)
+    {
+        // select * from votes where candidate_id = candidate_id And officer_id = officer_id
+        $vote = Vote::where([
+            ['officer_id', '=', $officer_id],
+            ['candidate_id', '=', $candidate_id],
+        ])->get();
+        if (is_null($vote)) {
+            return 0;
+        }
+        return $vote->count();
+    }
+
+    public function getVotePercentagePerCandidate($candidate_vote_count, $officer_total_vote_count)
+    {
+        $percentage =  $candidate_vote_count / $officer_total_vote_count * 100;
+        return $percentage;
     }
 }

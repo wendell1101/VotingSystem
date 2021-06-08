@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\CheckIfHasOfficer;
 use App\Http\Middleware\CheckIfHasPosition;
+use App\Http\Middleware\CheckIfIsAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkIfHasOfficer' => CheckIfHasOfficer::class,
         'checkIfHasPosition' => CheckIfHasPosition::class,
+        'checkIfIsAdmin' => CheckIfIsAdmin::class,
     ];
 }

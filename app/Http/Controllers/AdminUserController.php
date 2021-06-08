@@ -20,6 +20,8 @@ class AdminUserController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
+        $this->middleware('checkIfIsAdmin');
         return $this->middleware('checkIfHasPosition')->except('index');
     }
     public function index()

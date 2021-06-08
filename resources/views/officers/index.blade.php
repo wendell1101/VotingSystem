@@ -17,6 +17,7 @@
                 <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Name</th>
+                    <th class="text-center">Required Votes Count</th>
                     <th></th>
 
                 </tr>
@@ -26,6 +27,7 @@
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
                     <td class="text-center">{{ $officer->name}}</td>
+                    <td class="text-center">{{ $officer->num_of_votes}}</td>
                     <td class="td-actions text-right">
                         <!-- <button type="button" rel="tooltip" class="btn btn-info">
                             <i class="material-icons">person</i>

@@ -1,30 +1,33 @@
 <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse
-    " role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse main-bg-color
+    " role="navigation" style="border:none">
         <div class="container">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="navbar-header">
+            <div class="navbar-header align-items-center">
 
-                <a href="index.html" class="navbar-brand headerFont text-lg"><strong>Computer Society </strong></a>
+                <a href="index.html" class="navbar-brand headerFont text-lg text-white"><strong>
+                        <!-- Computer Society  -->
+                        <img src="{{ asset('img/main/COMSOC.png') }}" alt="logo" width="50px">
+                    </strong></a>
             </div>
 
             <div class="collapse navbar-collapse" id="example-nav-collapse">
                 <ul class="nav navbar-nav">
 
-                    <li><a href="#featuresTab"><span class="subFont"><strong>Features</strong></span></a></li>
-                    <li><a href="#abhoutTab"><span class="subFont"><strong>About</strong></span></a></li>
-                    <li><a href="#feedbackTab"><span class="subFont"><strong>Feedback</strong></span></a></li>
+                    <li><a href="#featuresTab"><span class="subFont" style="color:#fff!important"><strong>Features</strong></span></a></li>
+                    <li><a href="#abhoutTab"><span class="subFont" style="color:#fff!important"><strong>About</strong></span></a></li>
+                    <li><a href="#feedbackTab"><span class="subFont" style="color:#fff!important"><strong>Feedback</strong></span></a></li>
 
                 </ul>
 
 
                 <ul class="ml-auto align-items-center d-flex">
                     <!-- Admin Panel -->
-                    @guest>
+                    @guest
                     <li><a href="{{ route('login') }}"><span>
                                 Login
                             </span></a></li>

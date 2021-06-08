@@ -1,78 +1,104 @@
-@extends('layouts.base')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="jumbotron text-center text-block" style="padding-top:170px;">
-                <img src="{{ asset('img/Vote.png') }}" alt="">
-                <h1 class="specialHead">Online Voting System</h1>
-                <p class="normalFont">Safe . Reliable . Secure . Fast </p>
+    <title>Laravel</title>
 
-                <a href="vault.html" class="btn btn-primary btn-md specialHead"> <span class="glyphicon glyphicon-tag"></span> Cast Your Vote</a>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links>a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+            <a href="{{ route('login') }}">Login</a>
+
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}">Register</a>
+            @endif
+            @endauth
+        </div>
+        @endif
+
+        <div class="content">
+            <div class="title m-b-md">
+                Laravel
+            </div>
+
+            <div class="links">
+                <a href="https://laravel.com/docs">Docs</a>
+                <a href="https://laracasts.com">Laracasts</a>
+                <a href="https://laravel-news.com">News</a>
+                <a href="https://blog.laravel.com">Blog</a>
+                <a href="https://nova.laravel.com">Nova</a>
+                <a href="https://forge.laravel.com">Forge</a>
+                <a href="https://vapor.laravel.com">Vapor</a>
+                <a href="https://github.com/laravel/laravel">GitHub</a>
             </div>
         </div>
     </div>
-</div>
+</body>
 
-<div class="conatiner" id="featuresTab">
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <div class="page-header" style="padding-top:50px;padding-bottom:50px">
-                <h1 class="normalFont" style="font-size:44px;">WHAT IS IT.</h1>
-                <p class="subFont" style="font-size:24px;"><em>A Intractive Way To Solve Conventional Voting.</em></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="conatiner" style="padding:50px;" id="aboutTab">
-    <div class="row">
-
-
-
-        <div class="col-sm-4 text-center">
-
-            <img src="{{ asset('img/Nominee.png') }}" width="100" height="100" alt="" />
-            <h2 class="normalFont" style="font-size:28px;">VOTE ONLINE.</h2>
-            <p><em>You Just Need Basic Details of Yours and We Will Let You Vote.</em></p>
-
-        </div>
-        <div class="col-sm-4 text-center">
-
-            <img src="{{ asset('img/Vote.png') }}" width="100" height="100" alt="" />
-            <h2 class="normalFont" style="font-size:28px;">NOMINATION</h2>
-            <p><em>Admin's Control Panel allows you to manage the list of filled nomination.</em></p>
-
-        </div>
-        <div class="col-sm-4 text-center">
-
-            <img src="{{ asset('img/Stats.png')}}" width="100" height="100" alt="" />
-            <h2 class="normalFont" style="font-size:28px;">Statitics</h2>
-            <p><em>SHows You the Graphical Data Representation of your votes. And, It is in Admin's Control Panel.</em></p>
-
-        </div>
-
-
-    </div>
-</div>
-<hr>
-<div class="container" id="feedbackTab">
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <div class="page-header" style="padding-top:30px;padding-bottom:30px;">
-                <img src="{{ asset('img/MailBoy.png') }}" width="100" height="100" alt="">
-                <br>
-                <h1 class="specialHead">CONTACT</h1>
-                <p style="font-size:16px;">If You have any suggestion regarding our voting system. We 'll welcome your suggestion,</p>
-                <p><strong>support@greensyntax.com</strong></p>
-
-                <br>
-                <a href="mailto:support@greensyntax.co.in" class="btn btn-info"> <strong>Feedback</strong></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
+</html>

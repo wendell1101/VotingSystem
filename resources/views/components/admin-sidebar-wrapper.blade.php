@@ -30,6 +30,12 @@
                 <p>Candidates</p>
             </a>
         </li>
+        <li class="nav-item @if(Request::is('results')) active @endif">
+            <a class="nav-link" href="{{ route('results.index') }}">
+                <i class="material-icons">person</i>
+                <p>Voting Results</p>
+            </a>
+        </li>
 
     </ul>
 </div>

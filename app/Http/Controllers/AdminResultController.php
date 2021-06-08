@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Officer;
+use App\Vote;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminResultController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('checkIfIsAdmin');
-    }
     public function index()
     {
-        return view('admin.index');
+
+        $data = [
+            'votes' => Vote::all(),
+            'officers' => Officer::all(),
+        ];
+        return view('results.index')->with($data);
     }
 
     /**
@@ -51,7 +52,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $officer = Officer::findOrFail($id);
+        return view('results.show')->with('officer', $officer);
     }
 
     /**

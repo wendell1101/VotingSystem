@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    overflow-x: hidden;
 }
 
 .headerFont {
@@ -26,6 +27,15 @@ a {
     text-decoration: none;
 }
 
+.main-bg-color {
+    background-color: #cb64dd;
+}
+.sub-bg-color1 {
+    background-color: #ddcb64;
+}
+.sub-bg-color2 {
+    background-color: #64ddcb;
+}
 a:link {
     color: #ffffff;
     text-decoration: none;
@@ -48,5 +58,14 @@ a:active {
     color: #ffffff;
     text-decoration: none;
 }
-.navbar-inverse {
+
+.jumbotron {
+    background: #eee;
+    background: rgb(255, 255, 255);
+    background: url("https://images.pexels.com/photos/1251861/pexels-photo-1251861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+        linear-gradient(
+            300deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(112, 109, 112, 0.40940126050420167) 100%
+        );
 }

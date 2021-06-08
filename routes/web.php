@@ -19,10 +19,13 @@ Route::resource('users', 'AdminUserController');
 Route::resource('positions', 'AdminPositionController');
 Route::resource('officers', 'AdminOfficerController');
 Route::resource('candidates', 'AdminCandidateController');
+Route::resource('votes', 'ClientVoteController');
+Route::resource('results', 'AdminResultController');
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
