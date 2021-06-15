@@ -18,6 +18,7 @@
                 <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Candidate Name</th>
+                    <th class="text-center">Partylist</th>
                     <th class="text-center">Total Vote</th>
                     <th class="text-center">Image</th>
                     <th class="text-center">Vote Percentage</th>
@@ -31,6 +32,7 @@
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
                     <td class="text-center">{{ $candidate->name }}</td>
+                    <td class="text-center">{{ $candidate->getPartylistName($candidate->partylist_id) }}</td>
                     <td class="text-center">{{ $candidate->getCandidateVotesCount($officer->id , $candidate->id)}}</td>
                     <td class="text-center">
                         <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="image" width="50px" height="50px" class="rounded-circle">

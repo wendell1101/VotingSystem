@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Partylist;
 use App\Vote;
 use Illuminate\Database\Eloquent\Model;
 
 class Candidate extends Model
 {
     protected $fillable = [
-        'image', 'name', 'course_and_section', 'email', 'contact_no', 'description', 'platform', 'officer_id'
+        'image', 'name', 'course_and_section', 'email', 'contact_no', 'description', 'platform', 'officer_id', 'partylist_id'
     ];
 
     public function officers()
@@ -23,6 +24,14 @@ class Candidate extends Model
             return null;
         }
         return $officer->name;
+    }
+    public function getPartylistName($id)
+    {
+        $partylist = Partylist::findOrFail($id);
+        if (!$partylist) {
+            return null;
+        }
+        return $partylist->name;
     }
 
     public function formatNumber($number)
@@ -46,5 +55,10 @@ class Candidate extends Model
     {
         $percentage =  $candidate_vote_count == 0 ? 0 : $candidate_vote_count / $officer_total_vote_count * 100;
         return $this->formatNumber($percentage);
+    }
+
+    public function partylists()
+    {
+        return $this->belongsTo(Partylist::class);
     }
 }

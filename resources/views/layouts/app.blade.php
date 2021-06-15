@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/material-dashboard.css?v=2.1.2') }}">
+    @yield('css')
 </head>
 
 <body>
@@ -78,6 +79,7 @@
             @yield('content')
         </main>
     </div>
+    @yield('js')
 </body>
 
 </html>

@@ -21,6 +21,7 @@ Route::resource('officers', 'AdminOfficerController');
 Route::resource('candidates', 'AdminCandidateController');
 Route::resource('votes', 'ClientVoteController');
 Route::resource('results', 'AdminResultController');
+Route::resource('partylists', 'PartylistController');
 Route::get('/', function () {
     return view('welcome');
 });

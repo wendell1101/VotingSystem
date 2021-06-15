@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Partylist;
 use App\Officer;
 use App\Candidate;
 use Illuminate\Support\Facades\Storage;
@@ -33,7 +34,11 @@ class AdminCandidateController extends Controller
      */
     public function create()
     {
-        return view('candidates.create')->with('officers', Officer::all());
+        $data = [
+            'officers' => Officer::all(),
+            'partylists' => Partylist::all(),
+        ];
+        return view('candidates.create')->with($data);
     }
 
     /**
@@ -74,6 +79,7 @@ class AdminCandidateController extends Controller
         $data = [
             'officers' => $officers,
             'candidate' => $candidate,
+            'partylists' => Partylist::all(),
         ];
         return view('candidates.edit')->with($data);
     }

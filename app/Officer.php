@@ -20,7 +20,7 @@ class Officer extends Model
     // }
 
     protected $fillable = [
-        'name', 'num_of_votes'
+        'name'
     ];
 
     public function candidates()

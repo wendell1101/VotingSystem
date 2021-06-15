@@ -91,7 +91,7 @@
                 </div>
             </div>
             <!-- officer_id -->
-            @if($officers)
+            @if($officers->count() > 0)
             <div class="form-row">
                 <div class="form-group col">
                     <select name="officer_id" id="officer_id" class="form-control" required>
@@ -103,6 +103,21 @@
                 </div>
             </div>
             @endif
+
+            <!-- partylist_id -->
+            @if($partylists->count() > 0)
+            <div class="form-row">
+                <div class="form-group col">
+                    <select name="partylist_id" id="partylist_id" class="form-control" required>
+                        <option value="" required> Choose partylist</option>
+                        @foreach($partylists as $partylist)
+                        <option value="{{ $partylist->id}}"> {{ ucwords($partylist->name) }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            @endif
+
             <div class="form-row">
                 <a href="{{ route('candidates.index') }}" class="btn btn-muted" name="create">Cancel</a>
                 <button type="submit" class="btn btn-primary" name="create">Create</button>

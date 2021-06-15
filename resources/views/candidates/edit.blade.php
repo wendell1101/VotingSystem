@@ -104,6 +104,20 @@
                 </div>
             </div>
             @endif
+
+            <!-- partylist_id -->
+            @if($partylists->count() > 0)
+            <div class="form-row">
+                <div class="form-group col">
+                    <select name="partylist_id" id="partylist_id" class="form-control" required>
+                        <option value="" required> Choose partylist</option>
+                        @foreach($partylists as $partylist)
+                        <option value="{{ $partylist->id}}" {{ ($candidate->partylist_id == $partylist->id) ? 'selected' : '' }}> {{ ucwords($partylist->name) }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            @endif
             <div class="form-row">
                 <a href="{{ route('candidates.index') }}" class="btn btn-muted" name="create">Cancel</a>
                 <button type="submit" class="btn btn-primary" name="update">Update</button>

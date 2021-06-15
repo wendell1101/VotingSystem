@@ -18,6 +18,12 @@
                 <p>User Roles</p>
             </a>
         </li>
+        <li class="nav-item @if(Request::is('partylists')) active @endif">
+            <a class="nav-link" href="{{ route('partylists.index') }}">
+                <i class="material-icons"><i class="fas fa-tasks"></i></i>
+                <p>Partylists</p>
+            </a>
+        </li>
         <li class="nav-item @if(Request::is('officers')) active @endif">
             <a class="nav-link" href="{{ route('officers.index') }}">
                 <i class="material-icons"><i class="fas fa-tasks"></i></i>

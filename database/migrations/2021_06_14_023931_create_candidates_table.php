@@ -23,7 +23,9 @@ class CreateCandidatesTable extends Migration
             $table->string('description');
             $table->text('platform');
             $table->unsignedBigInteger('officer_id');
-            $table->foreign('officer_id')->references('id')->on('officers');;
+            $table->foreign('officer_id')->references('id')->on('officers');
+            $table->unsignedBigInteger('partylist_id');
+            $table->foreign('partylist_id')->references('id')->on('partylists');
             $table->timestamps();
         });
     }

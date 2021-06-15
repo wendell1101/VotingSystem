@@ -99,6 +99,9 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
 
+    <!-- ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- Data table -->
     <script src="{{ asset('js/dataTables.min.js') }}"></script>
 

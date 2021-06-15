@@ -4,46 +4,41 @@
 
 <div class="container-fluid">
     <div class="d-flex align-items-center" width="100%">
-        <h3>Candidates</h2>
-            <a href="{{ route('candidates.create') }}" class="btn btn-primary btn-md ml-auto">Create <i class="ml-2 fa fa-plus"></i></a>
+        <h3>Partylists</h2>
+            <a href="{{ route('partylists.create') }}" class="btn btn-primary btn-md ml-auto">Create Partylist <i class="ml-2 fa fa-plus"></i></a>
 
     </div>
 
     <div class="table-responsive">
         <x-alert />
         <table class="table" id="general-table" class="display" style="width:100%">
-            @if($candidates->count() > 0)
+            @if($partylists->count() > 0)
             <thead>
                 <tr>
                     <th class="text-center">#</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Email</th>
-                    <th>Course & Section</th>
-                    <th>Position</th>
-                    <th>Partylist</th>
+                    <th class="text-center">Name</th>
+                    <!-- <th class="text-center">Description</th> -->
+
+                    <!-- <th class="text-center">Required Votes Count</th> -->
                     <th></th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach($candidates as $candidate)
+                @foreach($partylists as $partylist)
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
-                    <td>{{ $candidate->name }}</td>
-                    <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="60" height="60" class="rounded-circle"></td>
-                    <td>{{ $candidate->email }}</td>
-                    <td>{{ $candidate->course_and_section }} </td>
-                    <td>{{ $candidate->getOfficerName($candidate->officer_id) }} </td>
-                    <td>{{ $candidate->getPartylistName($candidate->partylist_id) }} </td>
+                    <td class="text-center"><a href="{{ route('partylists.show', $partylist->id) }}">{{ strtoupper($partylist->name) }}</a></td>
+                    <!-- <td class="text-center">{{ ucwords($partylist->description) }}</td> -->
+
                     <td class="td-actions text-right">
                         <!-- <button type="button" rel="tooltip" class="btn btn-info">
                             <i class="material-icons">person</i>
                         </button> -->
-                        <a href="{{ route('candidates.edit', $candidate->id) }}" rel="tooltip" class="btn btn-success">
+                        <a href="{{ route('partylists.edit', $partylist->id) }}" rel="tooltip" class="btn btn-success">
                             <i class="material-icons">edit</i>
                         </a>
-                        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deleteCandidate({{$candidate->id}});">
+                        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deletePartylist({{$partylist->id}});">
                             <i class="material-icons">close</i>
                         </button>
                     </td>
@@ -51,7 +46,7 @@
                 @endforeach
             </tbody>
             @else
-            <h2 class="text-secondary text-center">No Candidate Yet</h2>
+            <h2 class="text-secondary text-center">No Partylist Yet</h2>
             @endif
 
 
@@ -70,13 +65,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Candidate</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Partylist</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete this candidate?
+                        Are you sure you want to delete this partylist?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,9 +93,9 @@
     const deleteBtn = document.getElementById('btn-confirm-delete');
 
 
-    function deleteCandidate(id) {
+    function deletePartylist(id) {
         deleteBtn.addEventListener('click', function(e) {
-            deleteForm.action = `/candidates/${id}/`;
+            deleteForm.action = `/partylists/${id}/`;
             deleteForm.submit();
         })
 
