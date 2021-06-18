@@ -30,7 +30,7 @@
     <div id="app">
         <nav class="main-nav">
             <div class="container" data-aos="fade-down">
-                <a href="{{ route('home') }}" class="logo-btn"><img src="{{ asset('img/main/comsoc.png')}}" alt="logo" width="60px" height="60px"></a>
+                <a href="{{ route('home') }}" class="logo-btn"><img src="{{ asset('img/main/comsoc.png')}}" alt="logo" width="50px" height="50px"></a>
                 <ul class="nav-lists">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -55,7 +55,7 @@
                     </li>
                     @endif
                     @else
-                    <li class=" dropdown" style="list-style:none!important">
+                    <!-- <li class=" dropdown" style="list-style:none!important">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->getFullName() }}
                         </a>
@@ -70,9 +70,30 @@
                                 @csrf
                             </form>
                         </div>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->getFullName() }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if(auth()->user()->isAdmin())
+                            <a class="dropdown-item" href="{{ route('admin.index') }}">Go to admin</a>
+                            @endif
+
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+
+                            </form>
+
+                        </div>
                     </li>
                     @endguest
-                    <a href="https://www.pup.edu.ph/" class="logo-btn" target="_blank"><img src="{{ asset('img/main/pup_logo.png')}}" alt="pup" width="60px" height="60px"></a>
+                    <a href="https://www.pup.edu.ph/" class="logo-btn" target="_blank"><img src="{{ asset('img/main/pup_logo.png')}}" alt="pup" width="50px" height="50px"></a>
                 </div>
             </div>
 
@@ -97,7 +118,10 @@
                         {{ Auth::user()->getFullName() }}
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(auth()->user()->isAdmin())
+                        <a class="dropdown-item" href="{{ route('admin.index') }}">Go to admin</a>
+                        @endif
                         <a class="dropdown-item text-primary logout-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -120,6 +144,30 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container justify-content-center">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="{{ route('home') }}" class="logo"><img src="{{ asset('img/main/comsoc.png') }}" class="footer-logo" alt="logo"></a>
+                </div>
+                <div class="col-md-12 text-center mt-5">
+                    <div class="footer-icon-container">
+                        <a href="https://www.facebook.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-facebook-f" target="_blank"></i></a>
+                        <a href="https://www.twitter.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-twitter"></i></a>
+                        <a href="https://www.github.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/wendell-suazo-8339251aa/" target="_blank"><i class="footer-icon fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCprablWZYWvHOMGL49yweOA" target="_blank"><i class="footer-icon fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center mt-5">
+                    <p class="footer-text text-secondary">Copyright &copy; 2021 - Wendell Suazo</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     @yield('js')
 </body>

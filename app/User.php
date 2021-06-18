@@ -63,4 +63,10 @@ class User extends Authenticatable
         $max_id = User::max('id');
         return date("Y") . '-' . str_pad(($max_id + 1), 5, "0", STR_PAD_LEFT) . '-ST-0';
     }
+
+    //check if user is admin
+    public function isAdmin()
+    {
+        return $this->position_id == 1;
+    }
 }

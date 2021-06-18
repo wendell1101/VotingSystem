@@ -28,7 +28,7 @@ Route::put('/users/{user}/profile/', 'AdminUserController@updateProfile')->name(
 Route::get('tallies', 'ClientVoteController@tallies')->name('votes.tallies');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
