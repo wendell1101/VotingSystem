@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Client Votes Page</h1>
+    <h2 class="text-primary">Choose Candidate to Vote</h2>
 
     <div class="card">
         @if($officers->count() > 0)
@@ -13,7 +13,7 @@
 
                 <thead>
                     <tr>
-                        <th class="text-center">#</th>
+                        <th>#</th>
                         <th>Position</th>
                         <th>Status</th>
                         <th></th>
@@ -64,26 +64,6 @@
 
 
 </div>
-<button class="btn btn-primary mt-2 btn-md">View Results</button>
-
-</div>
+<a href="{{ route('votes.tallies') }}" class="btn btn-primary mt-2 btn-md">View Results</a>
 
 @endsection
-
-<script type="text/javascript">
-    // function getMaxSelection(num) {
-    //     $(document).ready(function() {
-
-    //         var last_valid_selection = null;
-
-    //         $('#candidate_id').change(function(event) {
-    //             if ($(this).val().length > num) {
-
-    //                 $(this).val(last_valid_selection);
-    //             } else {
-    //                 last_valid_selection = $(this).val();
-    //             }
-    //         });
-    //     });
-    // }
-</script>

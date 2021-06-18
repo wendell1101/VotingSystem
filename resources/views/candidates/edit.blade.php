@@ -12,7 +12,7 @@
             @method('PUT')
             <div class="row">
                 <div class="col text-center">
-                    <img id="uploadPreview" src="{{ asset('storage/candidate_images/' . $candidate->image) }}" class="img-fluid border" style="width: 130px; height:120px; border:none!important" /><br>
+                    <img id="uploadPreview" src="{{ asset('storage/candidate_images/' . $candidate->image) }}" class="img-fluid border rounded-circle" style="width: 100px; height:100px; border:none!important" /><br>
                     <label for="image">
                         <h2>
                             <i class="fas fa-user-plus text-primary" style="cursor: pointer"></i>

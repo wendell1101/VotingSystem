@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+
+use App\Http\Requests\Profiles\UpdateUserProfileRequest;
 use App\Http\Requests\AdminUsers\AdminUserUpdateRequest;
 use App\Http\Requests\AdminUsers\AdminUserCreateRequest;
 use App\Position;
@@ -117,5 +120,24 @@ class AdminUserController extends Controller
         $user->delete();
         Storage::delete('public/profile_images/' . $user->image);
         return redirect()->back()->with('success', 'A user has been deleted successfuly');
+    }
+
+    // edit profile
+
+    public function editProfile(User $user)
+    {
+        return view('users.edit-profile')->with('user', $user);
+    }
+
+    public function updateProfile(UpdateUserProfileRequest $request, User $user)
+    {
+        $data = $request->all();
+        if ($request->hasFile('image')) {
+            Storage::delete('public/profile_images/' . $user->image);
+            $data['image'] = time() . '_' . $request->image->getClientOriginalName();
+            $request->image->storeAs('profile_images', $data['image'], 'public');
+        }
+        $user->update($data);
+        return redirect()->back()->with('success', 'Profile has been updated');
     }
 }

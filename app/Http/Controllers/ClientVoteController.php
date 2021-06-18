@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Position;
 use App\Vote;
 use App\Candidate;
 use App\Officer;
@@ -91,5 +93,18 @@ class ClientVoteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function tallies()
+    {
+        $data = [
+            'officers' => Officer::all(),
+            'users' => User::all(),
+            'positions' => Position::all(),
+            'votes' => Vote::all(),
+            'candidates' => Candidate::all(),
+        ];
+
+        return view('votes.tallies')->with($data);
     }
 }

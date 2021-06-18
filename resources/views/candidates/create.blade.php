@@ -11,14 +11,14 @@
             @csrf
             <div class="row">
                 <div class="col text-center">
-                    <img id="uploadPreview" src="{{ asset('img/main/default.png') }}" class="img-fluid border" style="width: 130px; height:120px; border:none!important" /><br>
+                    <img id="uploadPreview" src="{{ asset('img/main/default.png') }}" class="img-fluid border rounded-circle" style="width: 100px; height:100px; border:none!important" /><br>
                     <label for="image">
                         <h2>
                             <i class="fas fa-user-plus text-primary" style="cursor: pointer"></i>
                         </h2>
                     </label>
 
-                    <input id="image" type="file" name="image" onchange="PreviewImage();" style="display:none" />
+                    <input id="image" type="file" name="image" onchange="PreviewImage();" style="display:none" required />
                     @error('image')
                     <span class=" invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
