@@ -19,7 +19,7 @@ class ClientVoteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('about');
     }
     public function index()
     {
@@ -106,5 +106,10 @@ class ClientVoteController extends Controller
         ];
 
         return view('votes.tallies')->with($data);
+    }
+
+    public function about()
+    {
+        return view('about');
     }
 }

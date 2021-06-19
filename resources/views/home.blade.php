@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container" style="min-height: 100vh">
+    <x-alert />
     <div class="row py-5" style="margin-top:60px">
         <div class="col-md-6 ">
             <p class="font-weight-bold sub-text">ONE DECISION CAN CHANGE THE FUTURE</p>

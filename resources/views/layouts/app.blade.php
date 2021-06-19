@@ -33,7 +33,7 @@
                 <a href="{{ route('home') }}" class="logo-btn"><img src="{{ asset('img/main/comsoc.png')}}" alt="logo" width="50px" height="50px"></a>
                 <ul class="nav-lists">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
                     <li><a href="#feedback" class="nav-link">Feedback</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -55,22 +55,7 @@
                     </li>
                     @endif
                     @else
-                    <!-- <li class=" dropdown" style="list-style:none!important">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->getFullName() }}
-                        </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-primary logout-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->getFullName() }}
@@ -100,7 +85,7 @@
             <ul class="side-nav">
                 <a href="{{ route('home') }}" class="side-nav-logo"><img src="{{ asset('img/main/comsoc.png') }}" alt="logo" width="50px" height="50px"></a>
                 <li class="side-link"><a href="{{ route('home') }}">Home</a></li>
-                <li class="side-link"><a href="#about" style="width: 100%;">About</a></li>
+                <li class="side-link"><a href="{{ route('about') }}" style="width: 100%;">About</a></li>
                 <li class="side-link"><a href="#feedback">Feedback</a></li>
                 <li class="side-link"><a href="#contact">Contact</a></li>
                 @guest
@@ -139,33 +124,26 @@
 
             </ul>
         </nav>
+        <!--Back to top button-->
+        <a id="button"><i class="fas fa-arrow-up arrow"></i></a>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container justify-content-center">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <a href="{{ route('home') }}" class="logo"><img src="{{ asset('img/main/comsoc.png') }}" class="footer-logo" alt="logo"></a>
-                </div>
-                <div class="col-md-12 text-center mt-5">
-                    <div class="footer-icon-container">
-                        <a href="https://www.facebook.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-facebook-f" target="_blank"></i></a>
-                        <a href="https://www.twitter.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-twitter"></i></a>
-                        <a href="https://www.github.com/wendell1101/" target="_blank"><i class="footer-icon fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/wendell-suazo-8339251aa/" target="_blank"><i class="footer-icon fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/channel/UCprablWZYWvHOMGL49yweOA" target="_blank"><i class="footer-icon fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-12 text-center mt-5">
-                    <p class="footer-text text-secondary">Copyright &copy; 2021 - Wendell Suazo</p>
-                </div>
+    <!-- Footer -->
+
+    <footer class="mt-2" style="background: #9c27b0; min-height: 100px">
+        <div class="container d-flex align-items-center">
+            <a href="index.php" class="logo-btn mt-3"><img src="{{ asset('img/main/comsoc.png') }}" alt="logo" width="60px"></a>
+            <div class="d-flex ml-auto footer-icons">
+                <a href="#"><i class="icon fab fa-instagram text-dark ml-2 footer-icon"></i></a>
+                <a href="#"><i class="icon fab fa-facebook-square text-dark ml-2 footer-icon"></i></a>
+                <a href="#"><i class="icon fab fa-twitter-square text-dark ml-2 footer-icon"></i></a>
             </div>
         </div>
+
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
