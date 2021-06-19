@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        // $this->middleware('auth')->except('index');
     }
 
     /**
@@ -26,6 +26,15 @@ class HomeController extends Controller
     {
         // return $this->generateStudentNumber();
         return view('home');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+    public function contact()
+    {
+        return view('contact');
     }
 
     public function generateStudentNumber()

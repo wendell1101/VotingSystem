@@ -107,9 +107,4 @@ class ClientVoteController extends Controller
 
         return view('votes.tallies')->with($data);
     }
-
-    public function about()
-    {
-        return view('about');
-    }
 }

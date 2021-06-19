@@ -71,7 +71,7 @@
             </div>
             <div class="col-12 text-center mt-5 contact-subtitle" data-aos="fade-up">
                 <h3 class="text-content contact-text mb-2">If you have any suggestion regarding our voting system. We 'll welcome your ideas</h3>
-                <h3 class="text-content contact-text mt-3">Start by <a href="#" class="text-header contact-link">saying hi!</a></h3>
+                <h3 class="text-content contact-text mt-3">Start by <a href="mailto:wendellchansuazo11@gmail.com" class="text-header contact-link">saying hi!</a></h3>
             </div>
             <div class="contact-info text-center mx-auto">
                 <div class="">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="">
                     <h4 class="subtitle2 contact-subtitle" data-aos="fade-up">comsocpup@gmail.com</h4>
-                    <a class="icon"><i class="contact-icon far fa-envelope" data-aos="fade-up"></i></a>
+                    <a href="mailto:wendellchansuazo11@gmail.com" class="icon"><i class="contact-icon far fa-envelope" data-aos="fade-up"></i></a>
                 </div>
                 <div class="">
                     <h4 class="subtitle2 contact-subtitle" data-aos="fade-up">@comsocpupstb</h4>

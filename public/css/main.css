@@ -405,6 +405,9 @@
     .hamburger {
         display: block;
     }
+    .contact-texts {
+        text-align: center;
+    }
 }
 
 /*back to top button*/

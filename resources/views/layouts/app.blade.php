@@ -34,8 +34,8 @@
                 <ul class="nav-lists">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
-                    <li><a href="#feedback" class="nav-link">Feedback</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="{{ route('votes.tallies') }}" class="nav-link">Results</a></li>
+                    <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
                     <div class="bar bar1"></div>
@@ -86,8 +86,8 @@
                 <a href="{{ route('home') }}" class="side-nav-logo"><img src="{{ asset('img/main/comsoc.png') }}" alt="logo" width="50px" height="50px"></a>
                 <li class="side-link"><a href="{{ route('home') }}">Home</a></li>
                 <li class="side-link"><a href="{{ route('about') }}" style="width: 100%;">About</a></li>
-                <li class="side-link"><a href="#feedback">Feedback</a></li>
-                <li class="side-link"><a href="#contact">Contact</a></li>
+                <li class="side-link"><a href="{{ route('votes.tallies') }}">Results</a></li>
+                <li class="side-link"><a href="{{ route('contact') }}">Contact</a></li>
                 @guest
                 <li class="side-link">
                     <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>

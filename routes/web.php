@@ -30,7 +30,8 @@ Route::get('tallies', 'ClientVoteController@tallies')->name('votes.tallies');
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/about', 'ClientVoteController@about')->name('about');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Auth::routes();
 
 
