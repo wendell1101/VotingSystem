@@ -27,11 +27,17 @@ Route::put('/users/{user}/profile/', 'AdminUserController@updateProfile')->name(
 
 Route::get('tallies', 'ClientVoteController@tallies')->name('votes.tallies');
 
+Route::get('/admin/refresh-votes', 'AdminController@refreshVoteCount')->name('votes.refresh');
+
+Route::get('/candidates-lists', 'AdminCandidateController@getCandidates')->name('candidates.lists');
+// Route::get('/get-candidates', 'AdminCandidateController@getCandidateLists')->name('candidates.ajax');
+
 Route::get('/', function () {
     return view('home');
 });
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+
 Auth::routes();
 
 

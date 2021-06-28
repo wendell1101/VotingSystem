@@ -103,7 +103,6 @@
                   " role="progressbar" style="width: {{ $percent }}%; " aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }}%</div>
           </div>
         </div>
-
       </div>
 
       @endforeach
@@ -140,4 +139,28 @@
     background: #9c27b0;
   }
 </style>
+@endsection
+
+@section('js')
+<script>
+  refreshVotes();
+
+  function refreshVotes() {
+    $.get('refresh-votes', function(data) {
+      console.log(data);
+
+
+    })
+  }
+
+  // function objectLength(object) {
+  //   var length = 0;
+  //   for (var key in object) {
+  //     if (object.hasOwnProperty(key)) {
+  //       ++length;
+  //     }
+  //   }
+  //   return length;
+  // };
+</script>
 @endsection

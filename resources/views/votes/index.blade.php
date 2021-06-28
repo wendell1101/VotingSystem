@@ -2,8 +2,8 @@
 
 
 @section('content')
-<div class="container">
-    <h2 class="text-primary">Choose Candidate to Vote</h2>
+<div class="container" style="min-height: 92vh">
+    <h2 class="text-primary mt-4">Choose Candidate to Vote</h2>
 
     <div class="card">
         @if($officers->count() > 0)
@@ -12,17 +12,16 @@
             <table class="table" id="general-table" class="display" style="width:100%">
 
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>#</th>
                         <th>Position</th>
                         <th>Status</th>
                         <th></th>
-
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($officers as $officer)
-                    <tr>
+                    <tr class="text-center">
                         <td>{{ ++$loop->index}}</td>
                         <td>
                             @if(!$officer->checkIfUserHasVoted(auth()->user()->id,$officer->id))
@@ -35,9 +34,17 @@
                         </td>
                         <td>
                             @if($officer->checkIfUserHasVoted(auth()->user()->id,$officer->id))
-                            <span class="text-success">Voted</span>
+                            <button class="btn btn-success">
+                                Voted
+                                <i class="fas fa-vote-yea ml-2"></i>
+                            </button>
+                            <!-- <span class="text-success">Voted </span> -->
                             @else
-                            <span class="text-muted">Pending</span>
+                            <button class="btn btn-muted">
+                                Pending
+                                <i class="far fa-hourglass ml-2"></i>
+                            </button>
+                            <!-- <span class="text-muted">Pending</span> -->
                             @endif
                         </td>
                     </tr>

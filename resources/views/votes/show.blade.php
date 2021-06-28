@@ -2,8 +2,8 @@
 
 
 @section('content')
-<div class="container">
-    <h1>Vote for {{ $officer->name }}</h1>
+<div class="container py-4" style="min-height: 80vh">
+    <h2 class="text-primary">Vote for {{ $officer->name }}</h2>
     @if($officer->candidates->count() > 0)
     <form action="{{ route('votes.store') }}" method="POST" id="vote-form">
         @csrf
@@ -13,7 +13,7 @@
             @foreach($officer->candidates as $candidate)
             <div class="card-header">
                 <input type="radio" name="candidate_id" id="candidate_id" value="{{ $candidate->id }}" required>
-                <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" class="rounded-circle" width="50" height="50">
+                <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" class="ml-2 rounded-circle" width="50" height="50">
 
                 {{$candidate->name}}- Partylist:
                 <span class="font-weight-bold">

@@ -116,4 +116,24 @@ class AdminCandidateController extends Controller
         Storage::delete('public/candidate_images/' . $candidate->image);
         return redirect()->back()->with('success',  'A candidate has been deleted successfully');
     }
+
+    public function getCandidates()
+    {
+        $data = [
+            'candidates' => Candidate::orderBy('officer_id')->get(),
+            'officers' =>  Officer::all(),
+        ];
+        return view('candidates-lists')->with($data);
+    }
+
+    public function getCandidateLists()
+    {
+        $data = '';
+        if (request()->ajax()) {
+            $data = [
+                'candidates' => Candidate::orderBy('officer_id')->get(),
+            ];
+        }
+        return response()->json($data);
+    }
 }

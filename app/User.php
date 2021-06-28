@@ -69,4 +69,10 @@ class User extends Authenticatable
     {
         return $this->position_id == 1;
     }
+
+    //format date
+    public function formatDate($date)
+    {
+        return $date->format('Y.m.d H:i:s');
+    }
 }

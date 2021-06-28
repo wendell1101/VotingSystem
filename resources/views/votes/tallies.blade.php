@@ -17,6 +17,8 @@
             <div class="card p-2">
                 @foreach($officer->candidates as $candidate)
                 <p class="font-weight-bold mt-1">{{ $candidate->name}}</p>
+
+
                 <div class="d-flex align-items-center justify-content-space-between">
                     <div style="flex:1">
                         <img src="{{ asset('storage/candidate_images/' . $candidate->image)}}" class="rounded-circle" alt="image" width="50" height="50">
@@ -33,7 +35,6 @@
                   " role="progressbar" style="width: {{ $percent }}%; " aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }}%</div>
                         </div>
                     </div>
-
                 </div>
 
                 @endforeach

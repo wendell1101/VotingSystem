@@ -34,6 +34,8 @@
                 <ul class="nav-lists">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                    <li><a href="{{ route('candidates.lists') }}" class="nav-link">Candidates</a></li>
+                    <li><a href="{{ route('votes.index') }}" class="nav-link">Vote</a></li>
                     <li><a href="{{ route('votes.tallies') }}" class="nav-link">Results</a></li>
                     <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 </ul>
@@ -86,6 +88,8 @@
                 <a href="{{ route('home') }}" class="side-nav-logo"><img src="{{ asset('img/main/comsoc.png') }}" alt="logo" width="50px" height="50px"></a>
                 <li class="side-link"><a href="{{ route('home') }}">Home</a></li>
                 <li class="side-link"><a href="{{ route('about') }}" style="width: 100%;">About</a></li>
+                <li class="side-link"><a href="#" style="width: 100%;">Candidates</a></li>
+                <li class="side-link"><a href="{{ route('votes.index') }}" style="width: 100%;">Vote</a></li>
                 <li class="side-link"><a href="{{ route('votes.tallies') }}">Results</a></li>
                 <li class="side-link"><a href="{{ route('contact') }}">Contact</a></li>
                 @guest

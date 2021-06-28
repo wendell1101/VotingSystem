@@ -34,6 +34,21 @@ class AdminController extends Controller
         return view('admin.index')->with($data);
     }
 
+    public function refreshVoteCount()
+    {
+        $data = '';
+        if (request()->ajax()) {
+            $data = [
+                'officers' => Officer::all(),
+                'users' => User::all(),
+                'positions' => Position::all(),
+                'votes' => Vote::all(),
+                'candidates' => Candidate::all(),
+            ];
+        }
+        return response()->json($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
