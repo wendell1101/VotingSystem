@@ -19,7 +19,7 @@ class AdminCandidateController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('checkIfIsAdmin');
+        $this->middleware('checkIfIsAdmin')->except('getCandidates');
         $this->middleware('checkIfHasOfficer')->except('index');
     }
     public function index()
