@@ -32,6 +32,11 @@ Route::get('/admin/refresh-votes', 'AdminController@refreshVoteCount')->name('vo
 Route::get('/candidates-lists', 'AdminCandidateController@getCandidates')->name('candidates.lists');
 // Route::get('/get-candidates', 'AdminCandidateController@getCandidateLists')->name('candidates.ajax');
 
+//Search
+Route::get('/search', 'SearchController@search')->name('candidates-lists.search');
+
+
+
 Route::get('/', function () {
     return view('home');
 });

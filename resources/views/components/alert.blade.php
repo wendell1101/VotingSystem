@@ -1,4 +1,4 @@
-<div>
+<div class="py-2">
     @if(session('success'))
     <p class="alert alert-success">
         {{ session('success' )}}
