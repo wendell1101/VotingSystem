@@ -134,13 +134,20 @@
                         //     ${candidate.name}
                         // `;
                         // })
-                        console.log(res.data);
+
                         const candidates = document.getElementById('candidates');
                         candidates.innerHTML = '';
                         const img_path = "storage/candidate_images/";
+
                         if (res.data.length != 0) {
                             q ? $('#search-results').html(`Results for <b>"${q}"</b>`) : $('#search-results').html('');
                             res.data.forEach(function(candidate) {
+
+
+
+
+
+                                // let showInfo = "onclick=showInfo(" + candidate + ")";
                                 candidates.innerHTML += `
                             <div class="col-md-4 p-2" id="candidate-lists">
                                     <div class="card">
@@ -150,7 +157,7 @@
                                                 <h4 class="text-primary font-weight-bold">${candidate.name}</h4>
                                                 <p class="text-warning">${candidate.officer_name}</p>
                                                 <p class="text-dark">${candidate.partylist_name}</p>
-                                                <span class="btn btn-primary btn-sm " id="btn-more-info" data-toggle="modal" data-target="#infoModal" onclick="showInfo(${candidate})">More Info</span>
+                                                <span class="btn btn-primary btn-sm " id="btn-more-info" data-toggle="modal" data-target="#infoModal" onClick="showInfo2(${candidate})">More Info</span>
                                             </div>
 
 
@@ -180,7 +187,10 @@
 
                             `
 
+
                             })
+
+
                         } else {
                             $('#search-results').html(`No results found for <b>"${q}"</b>`);
                         }
@@ -190,5 +200,27 @@
             }, 0)
         })
     })
+
+    function showInfo2(candidate) {
+
+        console.log(candidate);
+        const moreInfo = document.getElementById('more-info');
+        const modalContent = document.getElementById('modal-contents');
+        console.log(candidate);
+        let asset = "{{ asset('storage/candidate_images/')}}";
+        let image = `/${candidate.image}`;
+        let assetImage = asset + image;
+
+        modalContent.innerHTML = `
+            <div class="d-flex justify-content-center mb-2">
+                                    <img src="${assetImage}" alt="image" class="rounded-circle mx-auto" style="width:80px; height:80px">
+                                </div>
+                <p>Name : ${candidate.name} </p>
+                <p>Course and Section : ${candidate.course_and_section}</p>
+                <p>Description: ${candidate.description}</p>
+                <p>Platform: ${candidate.platform}</p>
+                `;
+        $('#infoModal2').modal('show');
+    }
 </script>
 @endsection
