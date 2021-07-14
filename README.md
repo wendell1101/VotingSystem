@@ -9,14 +9,11 @@
 * Administration Panel with dynamic dashboards and voting tallies
 * User priveleges(Admin, voter)
 
-How to use: 
-1. git clone "https://github.com/wendell1101/Online-Booking-System.git"
-2. run composer install
-3. import the sql file
-4. move the entire folder to htdocs
-5. rename the entire folder to online-booking-system
-6. open the browser and view the project
-
-## License
-
-The Online-Booking System is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Project setup
+-   Git clone https://github.com/wendell1101/coding_test.git
+-   Run `composer install` in the project root
+-   Create a new MySQL database named `voting_system` (any db_name is fine)
+-   Copy the `.env.example` file to a new file called `.env`
+-   Fill out the corresponding database values in the `.env` file
+-   Run `php artisan migrate` in the project root
+-   Run php artisan serve
