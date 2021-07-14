@@ -1,5 +1,5 @@
 # Computer Society - ONLINE VOTING SYSTEM 
-**Polytechnic University of the Philippines
+** Polytechnic University of the Philippines
 
 
 **Quick Features** (Main Branch)
