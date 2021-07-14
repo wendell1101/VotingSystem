@@ -10,7 +10,7 @@
 * User priveleges(Admin, voter)
 
 ## Project setup
--   Git clone https://github.com/wendell1101/coding_test.git
+-   Git clone https://github.com/wendell1101/VotingSystem.git
 -   Run `composer install` in the project root
 -   Create a new MySQL database named `voting_system` (any db_name is fine)
 -   Copy the `.env.example` file to a new file called `.env`
