@@ -157,7 +157,7 @@
                                                 <h4 class="text-primary font-weight-bold">${candidate.name}</h4>
                                                 <p class="text-warning">${candidate.officer_name}</p>
                                                 <p class="text-dark">${candidate.partylist_name}</p>
-                                                <span class="btn btn-primary btn-sm " id="btn-more-info" data-toggle="modal" data-target="#infoModal" onClick="showInfo2(${candidate})">More Info</span>
+                                                <span class="btn btn-primary btn-sm " id="btn-more-info" data-toggle="modal" data-target="#infoModal" onclick="showInfo2(${candidate})">More Info</span>
                                             </div>
 
 
