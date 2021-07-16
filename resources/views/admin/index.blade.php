@@ -89,7 +89,7 @@
       <p class="font-weight-bold mt-1">{{ $candidate->name}}</p>
       <div class="d-flex align-items-center justify-content-space-between">
         <div style="flex:1">
-          <img src="{{ asset('storage/candidate_images/' . $candidate->image)}}" class="rounded-circle" alt="image" width="50" height="50">
+          <img src="{{ asset('storage/candidate_images/' . $candidate->image)}}" class="rounded-circle border" alt="image" width="50" height="50">
           <!-- {{ $percent = $candidate->getVotePercentagePerCandidate($candidate->getCandidateVotesCount($officer->id , $candidate->id), $officer->getTotalVotesPerOfficer($officer->id))}} % -->
         </div>
 

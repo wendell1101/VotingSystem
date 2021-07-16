@@ -22,6 +22,7 @@ Route::resource('candidates', 'AdminCandidateController');
 Route::resource('votes', 'ClientVoteController');
 Route::resource('results', 'AdminResultController');
 Route::resource('partylists', 'PartylistController');
+
 Route::get('/users/{user}/profile/', 'AdminUserController@editProfile')->name('users.edit-profile');
 Route::put('/users/{user}/profile/', 'AdminUserController@updateProfile')->name('users.update-profile');
 
@@ -35,7 +36,7 @@ Route::get('/candidates-lists', 'AdminCandidateController@getCandidates')->name(
 //Search
 Route::get('/search', 'SearchController@search')->name('candidates-lists.search');
 
-
+Route::delete('candidates/delete/{id}/', 'AdminCandidateController@deleteCandidate');
 
 Route::get('/', function () {
     return view('home');

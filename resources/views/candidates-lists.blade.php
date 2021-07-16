@@ -38,7 +38,7 @@
         <div class="col-md-4 p-2" id="candidate-lists">
             <div class="card">
                 <div class="card-header text-center">
-                    <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" class="rounded-circle" alt="image" width="80px" height="80px">
+                    <img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" class="rounded-circle border" alt="image" width="80px" height="80px">
                     <div class="card-body text-center">
                         <h4 class="text-primary font-weight-bold">{{ $candidate->name }}</h4>
                         <p class="text-warning">{{ $candidate->getOfficerName($candidate->officer_id) }}</p>
@@ -96,7 +96,7 @@
 
         modalContent.innerHTML = `
         <div class="d-flex justify-content-center mb-2">
-                                <img src="${assetImage}" alt="image" class="rounded-circle mx-auto" style="width:80px; height:80px">
+                                <img src="${assetImage}" alt="image" class="rounded-circle border mx-auto" style="width:80px; height:80px">
                             </div>
             <p>Name : ${candidate.name} </p>
             <p>Course and Section : ${candidate.course_and_section}</p>

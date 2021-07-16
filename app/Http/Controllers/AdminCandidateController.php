@@ -18,7 +18,7 @@ class AdminCandidateController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('getCandidates');
         $this->middleware('checkIfIsAdmin')->except('getCandidates');
         $this->middleware('checkIfHasOfficer')->except('index');
     }
@@ -115,6 +115,13 @@ class AdminCandidateController extends Controller
         $candidate->delete();
         Storage::delete('public/candidate_images/' . $candidate->image);
         return redirect()->back()->with('success',  'A candidate has been deleted successfully');
+    }
+    public function deleteCandidate(Candidate $candidate)
+    {
+        if ($candidate->delete()) {
+            Storage::delete('public/candidate_images/' . $candidate->image);
+            return redirect()->back()->with('success',  'A candidate has been deleted successfully');
+        }
     }
 
     public function getCandidates()

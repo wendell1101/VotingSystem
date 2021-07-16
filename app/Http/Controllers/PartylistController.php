@@ -90,6 +90,6 @@ class PartylistController extends Controller
             $partylist->delete();
             session()->flash('success', 'A partylist has been deleted successfully');
         }
-        return redirect()->back();
+        return redirect(route('partylists.index'));
     }
 }

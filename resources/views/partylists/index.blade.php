@@ -38,7 +38,7 @@
                         <a href="{{ route('partylists.edit', $partylist->id) }}" rel="tooltip" class="btn btn-success">
                             <i class="material-icons">edit</i>
                         </a>
-                        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deletePartylist({{$partylist->id}});">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deletePartylist({{$partylist->id}});">
                             <i class="material-icons">close</i>
                         </button>
                     </td>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
+                        <button type="button" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
                     </div>
                 </div>
             </div>

@@ -20,4 +20,9 @@ class Vote extends Model
         }
         return $vote->count();
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

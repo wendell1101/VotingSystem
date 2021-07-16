@@ -20,7 +20,7 @@ class CreateVotesTable extends Migration
             $table->unsignedBigInteger('officer_id');
             $table->foreign('officer_id')->references('id')->on('officers');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();
         });
     }

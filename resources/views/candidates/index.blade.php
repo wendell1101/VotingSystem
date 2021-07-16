@@ -31,7 +31,7 @@
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
                     <td><a href="{{ route('candidates.show', $candidate->id)}}">{{ $candidate->name }}</a></td>
-                    <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="60" height="60" class="rounded-circle"></td>
+                    <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="60" height="60" class="rounded-circle border"></td>
                     <td>{{ $candidate->email }}</td>
                     <td>{{ $candidate->course_and_section }} </td>
                     <td>{{ $candidate->getOfficerName($candidate->officer_id) }} </td>
@@ -66,6 +66,7 @@
     <form action="" method="POST" id="deleteForm">
         @csrf
         @method('DELETE')
+        <input type="hidden" name="_method" value="DELETE">
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -80,7 +81,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
+                        <button type="button" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
                     </div>
                 </div>
             </div>
@@ -99,6 +100,7 @@
 
 
     function deleteCandidate(id) {
+
         deleteBtn.addEventListener('click', function(e) {
             deleteForm.action = `/candidates/${id}/`;
             deleteForm.submit();

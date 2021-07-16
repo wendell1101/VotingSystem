@@ -78,7 +78,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
+                        <button type="button" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
                     </div>
                 </div>
             </div>

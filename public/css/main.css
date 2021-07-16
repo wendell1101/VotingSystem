@@ -379,6 +379,7 @@
     background-repeat: no-repeat;
     background-position: center;
     min-height: 50vh !important;
+    margin-bottom: 80px;
 }
 .about-container {
     opacity: 0.8;
