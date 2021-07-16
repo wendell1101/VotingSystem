@@ -9,6 +9,7 @@
 * Ajax search of candidates
 * Administration Panel with dynamic dashboards and voting tallies
 * User priveleges(Admin, voter)
+* Communication Service (Messenger Plugin)
 
 ## Project setup
 -   Git clone https://github.com/wendell1101/VotingSystem.git
