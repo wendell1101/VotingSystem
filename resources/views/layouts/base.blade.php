@@ -21,21 +21,48 @@
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
 
-    <x-main-navbar />
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+        <!-- Navbar -->
 
-    @yield('content')
+        <x-main-navbar />
 
-    <!-- Footer -->
-    <x-base-footer />
+        @yield('content')
+
+        <!-- Footer -->
+        <x-base-footer />
 
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "108012664895048");
+            chatbox.setAttribute("attribution", "biz_inbox");
+
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml: true,
+                    version: 'v11.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
 </body>
 
 </html>
