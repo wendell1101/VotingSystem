@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="col-12 text-center mt-5">
-                <a href="mailto:wendellchansuazo11@gmail.com" class="btn btn-primary btn-lg" data-aos="fade-in">Contact US</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary btn-lg" data-aos="fade-in">Contact US</a>
             </div>
         </div>
     </div>

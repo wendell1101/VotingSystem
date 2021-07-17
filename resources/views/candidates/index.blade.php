@@ -30,7 +30,7 @@
                 @foreach($candidates as $candidate)
                 <tr>
                     <td class="text-center">{{ ++$loop->index }}</td>
-                    <td><a href="{{ route('candidates.show', $candidate->id)}}">{{ $candidate->name }}</a></td>
+                    <td><a href="{{ route('candidates.show', $candidate->id)}}">{{ strtoupper($candidate->name) }}</a></td>
                     <td><img src="{{ asset('storage/candidate_images/' . $candidate->image) }}" alt="profile" width="60" height="60" class="rounded-circle border"></td>
                     <td>{{ $candidate->email }}</td>
                     <td>{{ $candidate->course_and_section }} </td>

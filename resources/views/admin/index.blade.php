@@ -86,7 +86,7 @@
     @if($officer->candidates->count() > 0)
     <div class="card p-1">
       @foreach($officer->candidates as $candidate)
-      <p class="font-weight-bold mt-1">{{ $candidate->name}}</p>
+      <p class="font-weight-bold mt-1">{{ strtoupper($candidate->name) }}</p>
       <div class="d-flex align-items-center justify-content-space-between">
         <div style="flex:1">
           <img src="{{ asset('storage/candidate_images/' . $candidate->image)}}" class="rounded-circle border" alt="image" width="50" height="50">
